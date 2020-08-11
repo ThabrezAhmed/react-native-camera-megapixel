@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  ToastAndroid,
 } from 'react-native';
 
 import {
@@ -24,14 +25,19 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const throwError = () => {
-  throw 'Erro';
-};
+import CameraMP from './CameraMP';
 
 const App: () => React$Node = () => {
-  // throwError();
-  console.warn('hey');
-  console.warn('hellos');
+  useEffect(() => {
+    CameraMP.getBackCameraResolutionInMp(
+      (res) => {
+        alert(res + 'mp Camera');
+      },
+      (err) => {
+        alert('err ' + err);
+      },
+    );
+  }, []);
 
   return (
     <>
