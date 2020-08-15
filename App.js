@@ -24,8 +24,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
-import CameraMP from './CameraMP';
+import CameraMP from 'react-native-camera-megapixel';
 
 const App: () => React$Node = () => {
   useEffect(() => {
